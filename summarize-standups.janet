@@ -1,13 +1,24 @@
 #!/usr/bin/env janet
 
-(def base-folder "/Users/lpayson/Documents/obsidian/dsad/periodic/daily")
-(def out-folder "/Users/lpayson/Documents/obsidian/dsad/periodic/sprints")
+(def base-dir 
+  (if-let [dir (os/getenv "DAILIES_DIR")]
+    dir
+    (do 
+      (print "Error: DAILIES_DIR environment variable must be set")
+      (os/exit 1))))
+
+(def out-dir 
+  (if-let [dir (os/getenv "SPRINTS_DIR")]
+    dir
+    (do 
+      (print "Error: SPRINTS_DIR environment variable must be set")
+      (os/exit 1))))
 
 (defn write-summary
   "Write LLM summary to disk."
   [summary end] 
   (let [fname (first (string/split "." (last (string/split "/" (get end :file)))))
-        out-file (string out-folder "/" fname "-summary.md")]
+        out-file (string out-dir "/" fname "-summary.md")]
     (spit out-file summary)))
 
 (defn run-fabric-summary
@@ -83,7 +94,7 @@
     (while (and (<= year-counter end-year) 
             (or (< year-counter end-year)
                 (<= month-counter end-month)))
-      (array/push folders (string base-folder "/" year-counter "/" (string/format "%02d" month-counter)))
+      (array/push folders (string base-dir "/" year-counter "/" (string/format "%02d" month-counter)))
       (if (< month-counter 12)
         (++ month-counter)
         (do 
@@ -145,4 +156,4 @@
           run-fabric-summary
           (write-summary end-date)))))
 
-# (main "script-name" "11/24" "12/15")
+(main "script-name" "11/24" "12/16")
