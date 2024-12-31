@@ -1,6 +1,6 @@
 # summarize-standups
 
-This is a small script I wrote while learning Janet. It reads all daily markdown files in my Obsidian vault, extracts standup notes, summarizes them using Fabric and writes the summary to a new markdown file in the Obsidian vault. 
+This is a small script I wrote while learning [Janet](https://janet-lang.org/). It reads all daily markdown files in my [Obsidian](https://obsidian.md/) vault, extracts standup notes, summarizes them using [Fabric](https://github.com/danielmiessler/fabric) and writes the summary to a new markdown file in the Obsidian vault. 
 
 ## Setup
 
