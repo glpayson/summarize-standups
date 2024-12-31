@@ -125,7 +125,8 @@
      :file (string year "-" month "-" date ".md")}))
 
 (defn get-date
-  "Split the input into date parts. If the year wasn't specified then assume it is this year (it will be adjusted later in the case that it was last year)."
+  "Split the input into date parts. If the year wasn't specified then assume it is this year 
+  (it will be adjusted later in the case that it was last year)."
   [date]
   (let [date-parts (string/split  "/" date)]
     (if (= 3 (length date-parts))
@@ -144,7 +145,8 @@
     [start-date end-date]))
 
 (defn main
-  "Read all Obsidian daily files between start and end date, extract the standup sections, send them to an LLM for summarization, and write the summary to disk."
+  "Read all Obsidian daily files between start and end date, extract the standup sections, 
+  send them to an LLM for summarization, and write the summary to disk."
   [& args]
   (let [start (get args 1)
         end (get args 2)]
