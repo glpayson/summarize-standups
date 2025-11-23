@@ -1,6 +1,6 @@
 # summarize-standups
 
-**NOTE**: This project is mostly outdated now that coding agents like Claude Code, etc. are a thing.
+**❗️NOTE❗️**: This project is mostly outdated now that coding agents like Claude Code, etc. are a thing.
 
 **summarize-standups** is a small [Janet](https://janet-lang.org/) script that extracts stand-up logs from [Obsidian](https://obsidian.md/) daily notes, summarizes them with an LLM, and writes out a clean weekly summary per team member.
 
